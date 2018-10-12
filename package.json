@@ -1,0 +1,47 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "Infront code-test",
+  "main": "index.js",
+  "scripts": {
+    "clear" : "npm cache clean --force",
+    "build": "browserify index.js -o dist/bundle.js",
+    "watch": "watchify index.js -o dist/bundle.js -v",
+    "dev": "node node_modules/http-server/bin/http-server",
+    "start": "concurrently -k -n \"npm run build\" \"npm run watch\" \"npm run dev\""
+  },
+  "keywords": [
+    "parag",
+    "test",
+    "bollinger"
+  ],
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "env"
+          ]
+        }
+      ]
+    ]
+  },
+  "author": "parag bhalerao",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^10.0.0",
+    "concurrently": "^4.0.1"
+  },
+  "dependencies": {
+    "bollinger-bands": "^3.0.1",
+    "browserify": "^16.2.3",
+    "http-server": "^0.11.1",
+    "jquery": "^3.3.1",
+    "watchify": "^3.11.0"
+  }
+}
